@@ -65,7 +65,7 @@ void AddSMatrices(struct Sparse *s1, struct Sparse *s2)
         // they can be added, let's create a third matrix
         struct Sparse *sum;
         // create an object of sparse matrix and assign an array of elements.
-        sum = (struct Sparse *)malloc(((s->num)*4)*sizeof(struct Sparse))
+        sum = (struct Sparse *)malloc(((sum->num)*4)*sizeof(struct Sparse));
         sum->m = s1->m;
         sum->n = s1->n;
         //max size is s1 + s2 num
@@ -93,7 +93,7 @@ void AddSMatrices(struct Sparse *s1, struct Sparse *s2)
             }
             else
             {
-                sum->e[k++] = s1->e[i++]; // if they are equal then copy row of first 
+                sum->e[k++] = s1->e[i++]; // if they are equal then copy row of first
                 sum->e[k++].x = s2->e[j++].x; // also copy the element in that position
             }
         }
@@ -105,6 +105,7 @@ void AddSMatrices(struct Sparse *s1, struct Sparse *s2)
         }
     }
 }
+
 int main()
 {
     struct Sparse s;
@@ -112,3 +113,4 @@ int main()
     DisplaySMatrix(s);
     return 0;
 }
+
